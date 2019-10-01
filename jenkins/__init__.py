@@ -567,7 +567,7 @@ class Jenkins(object):
         Example::
 
             >>> me = server.get_whoami()
-            >>> print me['fullName']
+            >>> print(me['fullName'])
             >>> 'John'
 
         """
@@ -592,7 +592,7 @@ class Jenkins(object):
         Example::
 
             >>> info = server.get_version()
-            >>> print info
+            >>> print(info)
             >>> 1.541
 
         """
@@ -772,14 +772,14 @@ class Jenkins(object):
 
         if isinstance(obj, list):
             for i in obj:
-                if isinstance(i, (str, unicode)):
+                if isinstance(i, unicode):
                     temp_params.append(i)
                 else:
                     temp_params.append(self.build_tree_parameter_value(i))
 
             return ",".join(temp_params)
         else:  # dict
-            for key, value in obj.iteritems():
+            for key, value in obj.items():
                 temp_params.append(
                     key + "[" + self.build_tree_parameter_value(value) +
                     "]")
