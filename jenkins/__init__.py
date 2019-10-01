@@ -772,7 +772,7 @@ class Jenkins(object):
 
         if isinstance(obj, list):
             for i in obj:
-                if isinstance(i, unicode):
+                if isinstance(i, str):
                     temp_params.append(i)
                 else:
                     temp_params.append(self.build_tree_parameter_value(i))
